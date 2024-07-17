@@ -86,6 +86,10 @@ export function TabView<T extends Route>({
   const handleLayout = (e: LayoutChangeEvent) => {
     const { height, width } = e.nativeEvent.layout;
 
+    if (width === 0 && height === 0) {
+      return;
+    }
+
     setLayout((prevLayout) => {
       if (prevLayout.width === width && prevLayout.height === height) {
         return prevLayout;
